@@ -1,0 +1,29 @@
+（1）SQL或截图插入数据均可得分
+insert into suppliers values(10001,’大金科技’);
+仅供参考
+
+（2）SQL或截图插入数据均可得分
+Insert into t_goods values(20001,10001,’惠普笔记本’,5999,’苏州金鸡湖’);
+……
+……
+
+Insert into t_order values(30001, 20001,10,59990);
+……
+……
+仅供参考
+
+（3）update t_goods set goos_price=1.1* goos_price where goodsname=’ 惠普笔记本’;
+
+（4）select goods_id,goods_name,goods_price from t_goods
+Where goods_name like “%笔记本%”;
+
+（5）select  b.goods_name,sum(quintity) as 订购数量,sum(total_price) as 总价,from   t_goods a ,t_orders b ,t_suppliers c where c.supp_name=’大金科技’and
+c.supp_code = a.supp_code and a.goods_id = b.goods_id 
+group by b.goods_name;
+
+（6）Create procedure p_stored_proc( @id )
+Begin
+Select * from t_order where goodsid=@id;
+End
+
+（7）drop procedure p_stored_proc;
